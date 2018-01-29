@@ -18,7 +18,7 @@ namespace LuckyNumbers
             int[] userNum = new int[6];
             int winNum = 0;
             double winnings;
-            int user;
+            int userPick;
 
             do
             {
@@ -32,8 +32,8 @@ namespace LuckyNumbers
                 {
 
                     Console.Write("You can choose the range of numbers for the lottery generator.   Selections for the lottery generator must be a minimum of 20 numbers apart,");
-                    Console.Write(" For Example,you can choose for the lottery numbers to fall between 0 and 100 or between 2 and 22.");
-                    Console.WriteLine(" After choosing the range, you will then make your selections.");
+                    Console.WriteLine(" For Example,you can choose for the lottery numbers to fall between 0 and 100 or between 2 and 22.");
+                    Console.WriteLine("After choosing the range, you will then make your selections.");
                     Console.WriteLine("The larger the range, the larger the winnings. \n " );
 
                     Console.WriteLine("Enter lower number of the range for the Lottery Generator");
@@ -56,21 +56,21 @@ namespace LuckyNumbers
 
                     Console.WriteLine("");
                     Console.WriteLine("Think hard..... Now choose your numbers between " + x + " and " + y + "\n");
-                    user = 0; // resets choice counter to 0 if user continues playing
+                    userPick = 0; // resets choice counter to 0 if user continues playing
 
                     for (i = 0; i < userNum.Length; i++) //Loop for user input of numbers
                     {
-                        user = user + 1;
-                        Console.WriteLine("Enter Choice " + user);
+                        userPick = userPick + 1;
+                        Console.WriteLine("Enter Choice " + userPick);
                         userNum[i] = int.Parse(Console.ReadLine());
 
                         while ((userNum[i] > y) || (userNum[i] < x))
                         // Loop prevents user from entering a number that is too large or too small
                         {
                             Console.WriteLine("Error!!, Number is out of range");
-                            Console.WriteLine("Enter Choice " + user);
+                            Console.WriteLine("Enter Choice " + userPick);
                             userNum[i] = int.Parse(Console.ReadLine());
-                        }
+                        }   
                         
                     }
 
@@ -92,20 +92,11 @@ namespace LuckyNumbers
                         {
                             for (int j = 0; j < rJackpotNum.Length; j++)
                             {
-                                if (userNum[i] == rJackpotNum[j])
-                                {
-                                    Console.WriteLine(userNum[i]);
-                                    winNum = winNum + 1;  //Counts the number of winning numbers to be used in calculating winnings
-                                    
-                                    if (winNum > 0)
-                                {
-                                    Console.WriteLine("You have matched ");
-                                }
-                                    else
-                                {
-                                    Console.WriteLine("");
-                                }
-                                }
+                            if (userNum[i] == rJackpotNum[j])
+                            {
+                                Console.WriteLine(userNum[i]);
+                                winNum = winNum + 1;  //Counts the number of winning numbers to be used in calculating winnings
+                            }
 
                             }
                         }
